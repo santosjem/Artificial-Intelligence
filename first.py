@@ -3,6 +3,7 @@ from keras.datasets import reuters
 (train_data, train_labels), (test_data, test_labels) = reuters.load_data(num_words=10000)
 
 import numpy as np
+import matplotlib.pyplot as plt
 
 
 def vectorize_sequences(sequences, dimension=10000):
@@ -41,7 +42,7 @@ history = model.fit(partial_x_train,
                     batch_size=512,
                     validation_data=(x_val, y_val))
 
-import matplotlib.pyplot as plt
+
 loss = history.history['loss']
 val_loss = history.history['val_loss']
 epochs = range(1, len(loss) + 1)
